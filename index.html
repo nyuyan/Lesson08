@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Animated Web Page</title>
+    <style>
+      header {
+        background-color: #4285f4;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+      }
+      .demo1 {
+        display: flex;
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 30px;
+      }
+
+      img {
+        border-radius: 10%;
+        max-width: 30%;
+        margin-left: 100px;
+        height: auto;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        margin-top: 10px;
+      }
+      .description {
+        flex: 1;
+        padding-left: 620px;
+        margin-top: -400px;
+      }
+      .demo5 {
+        height: 100px;
+        width: 100px;
+        background: aqua;
+      }
+      .button{
+        text-align: center;
+      }
+      
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>About Me</h1>
+      <p>YuYan</p>
+    </header>
+
+    <div class="demo3">
+      <img src="image/about.jpg" alt="Yu Yan" />
+    </div>
+    <div class="description">
+      <div class="demo1">
+        Age:
+        <div class="demo6">0</div>
+        years old
+      </div>
+      <div class="demo1">Title: Web Developer</div>
+      <div class="demo1">
+        Description: I am a passionate web developer who loves to create
+        beautiful and functional websites for people who want to make a
+        difference in the world.
+      </div>
+
+      <div class="boxes">
+        <div class="demo5"></div><br>
+        <div class="demo5"></div><br>
+        <div class="demo5"></div><br>
+      </div>
+    </div>
+
+    <div class="button">
+      <button id="play">Play Animation</button>
+      <button id="pause">Pause Animation</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        anime({
+ targets: ".demo3",
+ translateY: 20,
+ rotate: 360,
+ opacity: [0, 1],
+ delay: 200
+});
+      anime({
+        targets: ".demo1",
+        translateX: 200,
+        delay: anime.stagger(300, { start: 1000 }),
+        direction: "alternate",
+      });
+      anime({
+        targets: ".demo6",
+        innerHTML: [0, 18],
+        easing: "linear",
+        round: 1,
+        duration: 2000,
+      });
+      var animation = anime({
+        targets: '.boxes',
+        translateX: 300,
+        easing: 'easeInOutExpo',
+        direction: 'alternate',
+        loop: true,
+        autoplay: false
+      });
+      document.querySelector("#play").onclick = animation.play;
+      document.querySelector("#pause").onclick = animation.pause;
+    </script>
+  </body>
+</html>
