@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Personal Website</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/fullpage.js/dist/fullpage.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <style>
+      header {
+        background-color: #4285f4;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+      }
+      .demo1 {
+        margin: 20px auto;
+        padding: 1px;
+        font-size: 25px;
+        margin-left: -10px;
+      }
+
+      img {
+        border-radius: 10%;
+        max-width: 30%;
+        margin-left: 50px;
+        height: auto;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+        margin-top: 10px;
+      }
+      .description {
+        flex: 1;
+        padding-left: 620px;
+        margin-top: -400px;
+      }
+      .demo5 {
+        height: 50px;
+        width: 50px;
+        background: aqua;
+      }
+      .button {
+        text-align: center;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      .contact-section {
+        background-color: #2ecc71;
+        text-align: center;
+        font-size: 40px;
+        color: #ffffff;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .social-icons {
+        margin-top: -20px;
+        display: flex;
+        gap: 20px;
+        font-size: 100px;
+        padding-bottom: 20px;
+        margin-left: -1px;
+      }
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      html {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="fullpage">
+      <div class="section">
+        <header>
+          <h1>About Me</h1>
+        </header>
+
+        <div class="demo3">
+          <img src="image/about.jpg" alt="Your Name" />
+        </div>
+        <div class="description">
+          <div class="demo1">Age:<div class="demo6">0</div>years old</div>
+          <div class="demo1">Title: Web Developer</div>
+          <div class="demo1">
+            Description: I am a passionate web developer who loves to create
+            beautiful <br />and functional websites for people who want to make
+            a difference in the world.
+          </div>
+
+          <div class="boxes">
+            <div class="demo5"></div>
+            <br />
+            <div class="demo5"></div>
+            <br />
+            <div class="demo5"></div>
+            <br />
+          </div>
+        </div>
+
+        <div class="button">
+          <button id="play">Play Animation</button>
+          <button id="pause">Pause Animation</button>
+        </div>
+      </div>
+      <div class="section contact-section">
+        <div class="demo1">Contact Me</div>
+        <div class="demo1">Email: yuayan05@gmail.com</div>
+        <div class="demo1">Phone: +65 8765 9783</div>
+        <h6> <a href="index.html">Exercise 1</a></h6>
+          <h6> <a href="exercise2.html">Exercise 2</a></h6>
+
+        <div class="social-icons">
+          <div class="demo3"><i class="fab fa-facebook"></i></div>
+          <div class="demo3"><i class="fab fa-twitter"></i></div>
+          <div class="demo3"><i class="fab fa-linkedin"></i></div>
+          <div class="demo3"><i class="fab fa-instagram"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/fullpage.js/dist/fullpage.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+
+    <script>
+      anime({
+        targets: ".demo3",
+        translateY: 20,
+        rotate: 360,
+        opacity: [0, 1],
+        delay: 200,
+      });
+      anime({
+        targets: ".demo1",
+        translateX: 200,
+        delay: anime.stagger(100, { start: 100 }),
+        direction: "alternate",
+      });
+      anime({
+        targets: ".contact-section",
+        opacity: 1,
+        translateY: [-20, 0],
+        duration: 1000,
+        easing: "easeInOutExpo",
+      });
+
+
+      anime({
+        targets: ".social-icons i",
+        translateY: [20, 0],
+        opacity: [0, 1],
+        delay: anime.stagger(100),
+        duration: 500,
+        easing: "easeInOutExpo",
+      });
+      anime({
+        targets: ".demo3",
+        translateY: 20,
+        rotate: 360,
+        opacity: [0, 1],
+        delay: 200,
+      });
+
+      anime({
+        targets: ".demo1",
+        translateX: 200,
+        delay: anime.stagger(300, {start: 1000}),
+        direction: "alternate",
+      });
+
+      anime({
+        targets: ".demo6",
+        innerHTML: [0, 18],
+        easing: "linear",
+        round: 1,
+        duration: 2000,
+      });
+      
+
+      var animation = anime({
+        targets: ".boxes .demo5",
+        translateX: 300,
+        borderRadius: ["0%", "50%"],
+        translateY: [-20, 0],
+        delay: anime.stagger(200, { start: 400 }),
+        easing: "easeInOutExpo",
+        direction: "alternate",
+        loop: true,
+        autoplay: false,
+      });
+
+      document.querySelector("#play").onclick = animation.play;
+      document.querySelector("#pause").onclick = animation.pause;
+
+
+var spinTitle = anime({
+  targets: ".s2",
+  rotate: "360deg",
+  autoplay: false,
+  duration: 1000
+});
+
+$(document).ready(function () {
+  $("#fullpage").fullpage({
+    sectionsColor: ["#03A9F4", "#2ECC71"],
+    navigation: true,
+    navigationPosition: "right",
+    anchors: ["about-me", "contact"],
+    afterLoad: function (origin, destination, direction) {
+      if (destination.index == 1) {
+        spinTitle.play();
+      }
+    },
+  });
+});
+
+    </script>
+  </body>
+</html>
